@@ -2,25 +2,23 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { FaShoppingCart, FaSignInAlt } from 'react-icons/fa';
-import { HiSun, HiMoon } from 'react-icons/hi';
+import { TypewriterEffectSmooth } from '../ui/typewriter-effect';
 
 const Header = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const words = [
+    { text: 'Experience ' },
+    { text: 'Effortless ' },
+    { text: 'Shopping ' },
+    { text: 'With ' },
+    { text: 'CodeCart',className: 'text-green-600' },
+  ];
 
-  const toggleTheme = () => {
-    const newTheme = isDarkMode ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    setIsDarkMode(!isDarkMode);
-  };
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <header>
-      <nav
-        className={`sticky top-0 z-50 shadow-lg transition-all duration-300 ${
-          isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-800'
-        }`}
-      >
+      {/* Navbar */}
+      <nav className="sticky top-0 z-50 shadow-lg transition-all duration-300 bg-white text-gray-800">
         <div className="max-w-screen-xl mx-auto flex justify-between items-center px-4 py-3">
           {/* Logo */}
           <Link
@@ -46,16 +44,6 @@ const Header = () => {
               <FaSignInAlt className="text-xl" />
               Sign In
             </Link>
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
-            >
-              {isDarkMode ? (
-                <HiSun className="h-6 w-6 text-yellow-400" />
-              ) : (
-                <HiMoon className="h-6 w-6 text-blue-500" />
-              )}
-            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -81,9 +69,7 @@ const Header = () => {
 
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
-            <div
-              className={`absolute top-14 left-0 w-full bg-gray-900 text-white shadow-lg md:hidden`}
-            >
+            <div className="absolute top-14 left-0 w-full bg-gray-900 text-white shadow-lg md:hidden">
               <ul className="flex flex-col items-start gap-4 px-4 py-6">
                 <li>
                   <Link
@@ -103,24 +89,19 @@ const Header = () => {
                     Sign In
                   </Link>
                 </li>
-                <li>
-                  <button
-                    onClick={toggleTheme}
-                    className="flex items-center gap-2 px-4 py-2 hover:bg-gray-700 rounded-md "
-                  >
-                    {isDarkMode ? (
-                      <HiSun className="h-6 w-6 text-yellow-400" />
-                    ) : (
-                      <HiMoon className="h-6 w-6 text-blue-500" />
-                    )}
-                    {isDarkMode ? 'Light Mode' : 'Dark Mode'}
-                  </button>
-                </li>
               </ul>
             </div>
           )}
         </div>
       </nav>
+
+      {/* Centered Typewriter Effect */}
+      <div className="flex items-center justify-center h-32">
+        <TypewriterEffectSmooth
+          words={words}
+          className="text-center text-2xl sm:text-4xl font-semibold text-blue-600"
+        />
+      </div>
     </header>
   );
 };
