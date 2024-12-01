@@ -6,7 +6,7 @@ import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
  
 
 export default function Home() {
-  const words = `Latest Products :`;
+  const words = `Discover Innovation: Shop the Latest Products Now at CodeCart!`;
   return (
      <>
      <h2 className="text-2xl py-2"><TextGenerateEffect words={words}/></h2>

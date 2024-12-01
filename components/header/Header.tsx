@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { FaShoppingCart, FaSignInAlt } from 'react-icons/fa';
 import { TypewriterEffectSmooth } from '../ui/typewriter-effect';
+import Menu from './Menu';
 
 const Header = () => {
   const words = [
@@ -30,20 +31,7 @@ const Header = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-6">
-            <Link
-              href="/cart"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg text-lg font-medium hover:bg-green-500 hover:text-white transition"
-            >
-              <FaShoppingCart className="text-xl" />
-              Cart
-            </Link>
-            <Link
-              href="/signin"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg text-lg font-medium hover:bg-green-500 hover:text-white transition"
-            >
-              <FaSignInAlt className="text-xl" />
-              Sign In
-            </Link>
+            <Menu/>
           </div>
 
           {/* Mobile Menu Button */}

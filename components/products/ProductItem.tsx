@@ -45,7 +45,7 @@ export default function ProductItem({ product }: { product: Product }) {
             {/* Add to Cart Button */}
             <CardItem
               as="button"
-              className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold transition-all duration-300 transform group-hover:scale-105 hover:bg-gray-700"
+              className="px-4 py-1 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold transition-all duration-300 transform group-hover:scale-105 hover:bg-gray-700"
             >
               Add to Cart
             </CardItem>

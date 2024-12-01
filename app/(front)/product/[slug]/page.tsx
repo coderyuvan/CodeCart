@@ -2,6 +2,7 @@ import React from 'react';
 import data from '@/lib/data';
 import Link from 'next/link';
 import Image from 'next/image';
+import AddToCart from '@/components/products/AddToCart';
 
 function ProductDetails({
   params,
@@ -45,7 +46,7 @@ function ProductDetails({
             alt={product.name}
             width={640}
             height={640}
-            className="rounded-lg shadow-lg"
+            className="rounded-5xl border-spacing-8  shadow-lg py-3 "
           />
         </div>
 
@@ -78,11 +79,18 @@ function ProductDetails({
                 </span>
               </div>
             </div>
-            <div className="card-actions justify-center p-4">
-              <button className="btn btn-primary w-full text-lg font-semibold rounded-lg hover:shadow-lg transition duration-300">
-                Add to Cart
-              </button>
-            </div>
+            {product.countInStock !== 0 && (
+                <div className="card-actions justify-center">
+                  <AddToCart
+                    item={{
+                      ...product,
+                      qty: 0,
+                      color: '',
+                      size: '',
+                    }}
+                  />
+                </div>
+              )}
           </div>
         </div>
       </div>

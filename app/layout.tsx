@@ -15,6 +15,7 @@ const geistMono = localFont({
 
 // This export should stay for metadata to work correctly on the server-side
 export const metadata: Metadata = {
+
   title: "CodeCart",
   description:
     "CodeCart is a cutting-edge, full-stack e-commerce platform built with Next.js, designed to provide a seamless shopping experience for both customers and store owners. Leveraging the power of server-side rendering and client-side interactions, CodeCart ensures blazing-fast page loads, optimized SEO, and dynamic, real-time updates.",
@@ -29,7 +30,7 @@ export default function RootLayout({
 
   
   return (
-    <html lang="en">
+    <html lang="en" className="darkc">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <div className="min-h-screen flex flex-col">
          
